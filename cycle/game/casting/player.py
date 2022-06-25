@@ -20,9 +20,15 @@ class Player(Actor):
         return self._segments
 
     def add_segment(self, segment):
+        """Adds a segment behind the player. 
+        
+        Arg:
+            segment(Actor)"""
         self._segments.append(segment)
 
     def move_next(self):
+        """I move every segment of the Player.
+            """
         #I CAN ADD ANOTHER SEGMENT AT THE END EVERYTIME IN THE SAME PLACE SO IT WILL LOOK LIKE STATIONARY BUT IT IS NOT... MAYBE?
         self._last_segment = self._segments[-1]  #where the tail ended before moving
         if len(self._segments) > 1:
@@ -38,6 +44,7 @@ class Player(Actor):
             # all of the segments will move
 
     def get_head(self):
+        """Returns the first element of the segments array, the head of the Player."""
         return self._segments[0]
 
     def grow_tail(self, number_of_segments):
@@ -64,6 +71,10 @@ class Player(Actor):
         self._segments.append(segment)
 
     def turn_head(self, velocity): #receive a point
+        """changes the velocity of the Player.
+        
+        Arg:
+            velocity(Point)"""
         self._segments[0].set_velocity(velocity)  # the head is in the 0 index
     
     # def _prepare_cycle(self): #the cycle has no tail at the beginning
