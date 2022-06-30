@@ -34,6 +34,9 @@ class Player(Actor):
         if len(self._segments) > 1:
             for segment in self._segments:
                 segment.move_next()   # move each segment (They are Actor objects) 
+                # x = (segment.get_position.get_x() + segment.get_velocity.get_x()) % constants.MAX_X
+                # y = (segment.get_position.get_y() + segment.get_velocity.get_y()) % constants.MAX_Y
+                # segment.set_position(Point(x, y))
         # update velocities
         for i in range(len(self._segments) - 1, 0, -1):
              # decreasing from the last one to the first one
