@@ -29,11 +29,11 @@ class Player(Actor):
     def move_next(self):
         """I move every segment of the Player.
             """
-        #I CAN ADD ANOTHER SEGMENT AT THE END EVERYTIME IN THE SAME PLACE SO IT WILL LOOK LIKE STATIONARY BUT IT IS NOT... MAYBE?
         self._last_segment = self._segments[-1]  #where the tail ended before moving
         if len(self._segments) > 1:
             for segment in self._segments:
-                segment.move_next()   # move each segment (They are Actor objects) 
+                segment.super().move_next() # move each segment (They are Actor objects) 
+
                 # x = (segment.get_position.get_x() + segment.get_velocity.get_x()) % constants.MAX_X
                 # y = (segment.get_position.get_y() + segment.get_velocity.get_y()) % constants.MAX_Y
                 # segment.set_position(Point(x, y))
