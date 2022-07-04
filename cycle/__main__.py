@@ -32,7 +32,7 @@ def main():
     x = int((constants.MAX_X / 2) + 20)
     y = int(constants.MAX_Y / 2)
     position = Point(x,y)
-    velocity = Point(0,0) # it starts static
+    velocity = Point(0,0) # it should start static
     text = "@"
     r = random.randint(0, 255)
     g = random.randint(0, 255)

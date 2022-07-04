@@ -30,13 +30,11 @@ class Player(Actor):
         """I move every segment of the Player.
             """
         self._last_segment = self._segments[-1]  #where the tail ended before moving
-        if len(self._segments) > 1:
-            for segment in self._segments:
-                segment.super().move_next() # move each segment (They are Actor objects) 
-
-                # x = (segment.get_position.get_x() + segment.get_velocity.get_x()) % constants.MAX_X
-                # y = (segment.get_position.get_y() + segment.get_velocity.get_y()) % constants.MAX_Y
-                # segment.set_position(Point(x, y))
+        for segment in self._segments:
+          #  segment.move_next() # move each segment (They are Actor objects) 
+            x = (segment.get_position().get_x() + segment.get_velocity().get_x()) % constants.MAX_X
+            y = (segment.get_position().get_y() + segment.get_velocity().get_y()) % constants.MAX_Y
+            segment.set_position(Point(x, y))
         # update velocities
         for i in range(len(self._segments) - 1, 0, -1):
              # decreasing from the last one to the first one
@@ -45,13 +43,15 @@ class Player(Actor):
             velocity = previous.get_velocity()
             trailing.set_velocity(velocity)  
             # all of the segments will move
+        self.grow_tail()
 
     def get_head(self):
         """Returns the first element of the segments array, the head of the Player."""
         return self._segments[0]
 
-    def grow_tail(self, number_of_segments):
+    def grow_tail(self):
         #finish this idea
+        number_of_segments = len(self._segments)
         for i in range(number_of_segments):
             tail = self._segments[-1]
             velocity = tail.get_velocity()

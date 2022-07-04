@@ -41,7 +41,10 @@ class Point:
         Returns: 
             boolean: True if both x and y are equal; false if otherwise.
         """
-        return self._x == other.get_x() and self._y == other.get_y()
+        colission = False
+        if (abs(self._x - other.get_x()) < 10) and (abs(self._y - other.get_y()) < 10):
+            colission = True
+        return colission
 
     def get_x(self):
         """Gets the horizontal distance.
