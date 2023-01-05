@@ -43,7 +43,7 @@ def main():
     player1.set_text(text)
     player1.set_color(color)
     first_segment = player1
-    player1.add_segment(first_segment)  #check if this is right
+    player1.add_segment(first_segment)  #check if this is right, it is the cycle itself, the first element/segment
 
     player2 = Player()
     x = int((constants.MAX_X / 2) - 20)
